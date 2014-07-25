@@ -2,7 +2,7 @@ acousticmapping
 ===============
 
 Data vis, light painting mashup exploring room acoustics 
-(Excerpt from) 
+ 
 
 ## Synopsis 
 The goal for this project is to be able to photograph standing wave interference to create a kind of acoustical map of a room. Wave interference, simply put, is caused when two waves of the same frequency but different phase combine and result in a waveform that has an increased or decreased amplitude. 
