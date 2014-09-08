@@ -67,6 +67,8 @@ int sensorMax2 = 0;    // maximum sensor value2
 int sensorMax3 = 0;     // maximum sensor value3
 int sensorMax4 = 0;     // maximum sensor value4
 
+int sensorMaxAVG = 0;  //average max of all 4 mics 
+
 int ledsize = (num_lights / num_mics); //size of without the * i
 
 int x = 1.5;
@@ -120,35 +122,33 @@ void setup() {
     sensorMin4 = val4;
     }
   }
-  Serial.println(sensorMax);
-  Serial.println(sensorMax2);
-  Serial.println(sensorMax3);
-  Serial.println(sensorMax4);
+  sensorMaxAVG = ((sensorMin+sensorMin2+sensorMin3+sensorMin4)/4);
   digitalWrite(indicatorLedPin, LOW);
 
 }
 void loop() {
  //mic 1 
  val = running_Average(mic);  // smooth the mic readings with Running Average function
- val = map(val, sensorMin, sensorMax2, 0, ressteps);  // map the range to res steps
+ Serial.println(val);
+ val = map(val, sensorMin, sensorMaxAVG, 0, ressteps);  // map the range to res steps
  val = constrain(val, 0, ressteps);
  newledRange(val, 1); 
 
  //mic2
  val2 = running_Average2(mic2);  // smooth the mic readings with Running Average function
- val2 = map(val2, sensorMin2, sensorMax2, 0, ressteps);  // map the range to 0-255
+ val2 = map(val2, sensorMin2, sensorMaxAVG, 0, ressteps);  // map the range to 0-255
  val2 = constrain(val2, 0, ressteps);
  newledRange(val2, 2); 
 
  //mic3
  val3 = running_Average3(mic3);  // smooth the mic readings with Running Average function
- val3 = map(val3, sensorMin3, sensorMax2, 0, ressteps);  // map the range to 0-255
+ val3 = map(val3, sensorMin3, sensorMaxAVG, 0, ressteps);  // map the range to 0-255
  val3 = constrain(val3, 0, ressteps);
  newledRange(val3, 3); 
 
  //mic4
  val4 = running_Average4(mic4);  // smooth the mic readings with Running Average function
- val4 = map(val4, sensorMin4, sensorMax2, 0, ressteps);  // map the range to 0-255
+ val4 = map(val4, sensorMin4, sensorMaxAVG, 0, ressteps);  // map the range to 0-255
  val4 = constrain(val4, 0, ressteps);
  newledRange(val4, 4); 
 
