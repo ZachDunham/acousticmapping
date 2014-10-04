@@ -12,7 +12,7 @@ In order to photograph these interference or standing wave patterns, I'm playing
 The hardware and software here are part of this ongoing project.  
 
 ## Liscense 
-In the interest of collaboration and good will, the files herein are offered for public use.
+In the interest of collaboration and good will, the files herein are offered for public use. Just don't be a jerk about it and credit me if you use it commercially :)
 
 ## CONTAINED HEREIN
 * Embedded systems design files: Namely .brd, .sch
